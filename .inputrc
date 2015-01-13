@@ -1,0 +1,16 @@
+
+set editing-mode vi
+
+# vi settings                                         
+$if mode=vi                
+    # normal mode                           
+    set keymap vi-command                                 
+    #"j": beginning-of-history
+    #"l": backward-char
+    #"h": forward-char         
+    #"G": end-of-history
+    ".": yank-last-arg #in command mode, paste the prev last arg
+    # insert mode             
+    set keymap vi-insert                          
+    "jk": vi-movement-mode # remap escape   
+$endif
