@@ -30,3 +30,7 @@ export EDITOR=vim
 
 #vim like shorthands for bash
 alias :q='exit'
+
+#dont have chrom recover automatically
+alias chrome='chromium --disable-session-crashed-bubble'
+alias chromium='chromium --disable-session-crashed-bubble'
