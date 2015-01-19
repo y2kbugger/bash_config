@@ -34,3 +34,8 @@ alias :q='exit'
 #dont have chrom recover automatically
 alias chrome='chromium --disable-session-crashed-bubble'
 alias chromium='chromium --disable-session-crashed-bubble'
+
+#toggle touchpad, leave click keys on
+function touchpad () {
+        synclient TouchpadOff=$(synclient -l | grep -c 'TouchpadOff.*=.*0')
+}
