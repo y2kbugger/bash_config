@@ -9,11 +9,11 @@ alias et='easytether connect'
 export EDITOR='gvim -v'
 #copy and paste via X gvim binary + sudo editing
 function vim () {
-if [ -w "$1" ]
-  then
-  gvim -v "$@"
-else
+if [ -a $1 ] && [ -z $2 ] && [ ! -w $1 ]
+then
   sudoedit "$@"
+else
+  gvim -v "$@"
 fi
 }
 alias vi='vim'
@@ -26,7 +26,7 @@ alias sd='systemctl poweroff'
 alias windows='vboxmanage startvm Windows'
 
 #edit files using sudo vim
-export EDITOR=vim
+#export EDITOR=vim
 
 #vim like shorthands for bash
 alias :q='exit'
