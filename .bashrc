@@ -20,3 +20,7 @@ export HISTFILE=~/.bash_eternal_history
 if [ -f ~/.bash_aliases ]; then
 . ~/.bash_aliases
 fi
+
+#allow for reverse intelligent searching 'forward' with ctrl-s
+stty -ixon
+
