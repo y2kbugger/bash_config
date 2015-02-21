@@ -33,7 +33,10 @@ alias :q='exit'
 
 alias chrome='chromium'
 
-#toggle touchpad, leave click keys on
+#temporarily enable touchpad, leave click buttons on
 function touchpad () {
-        synclient TouchpadOff=$(synclient -l | grep -c 'TouchpadOff.*=.*0')
+        #synclient TouchpadOff=$(synclient -l | grep -c 'TouchpadOff.*=.*0') #toggle
+        synclient TouchpadOff=0
+        sleep 4m
+        synclient TouchpadOff=1
 }
