@@ -12,6 +12,11 @@ PS1='[\u@\h \W]\$ '
 shopt -s histappend
 PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 
+
+export HISTFILESIZE=-1
+export HISTSIZE=-1
+export HISTFILE=~/.bash_eternal_history
+
 if [ -f ~/.bash_aliases ]; then
 . ~/.bash_aliases
 fi
