@@ -40,3 +40,14 @@ function touchpad () {
         sleep 4m
         synclient TouchpadOff=1
 }
+
+#alias for todo.sh and the corresponding match to autocomplete
+source /usr/share/bash-completion/completions/todo.sh
+#alias t='todo.sh -t -c'
+function t () {
+    todo.sh pull
+    todo.sh -t -c "$@"
+    todo.sh push
+}
+complete -F _todo t
+
