@@ -51,3 +51,8 @@ function t () {
 }
 complete -F _todo t
 
+
+#cute little mo0ocow
+alias moo='figlet -f mini y2kbugger | cowthink -n -d'
+
+
