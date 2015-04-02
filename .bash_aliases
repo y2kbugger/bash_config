@@ -25,11 +25,8 @@ alias sd='systemctl poweroff'
 #start vm
 alias windows='vboxmanage startvm Windows'
 
-#edit files using sudo vim
-#export EDITOR=vim
-
 #vim like shorthands for bash
-alias :q='exit'
+alias q='exit'
 
 alias chrome='chromium'
 
