@@ -1,7 +1,15 @@
 #
 #~/.bash_aliases
 #
-alias ls='ls --color=auto'
+
+# colorize output
+alias ls='ls --color=always'
+# Use a long listing format
+alias ll='ls -lA --color=always'
+# Show hidden files
+alias l.='ls -d .* --color=always'
+
+#quick way to tether to android phone
 alias et='easytether connect'
 
 #vim stuff
