@@ -12,18 +12,18 @@ alias l.='ls -d .* --color=always'
 #quick way to tether to android phone
 alias et='easytether connect'
 
-#vim stuff
-#default editor
-export EDITOR='gvim -v'
-#copy and paste via X gvim binary + sudo editing
-function vim () {
-if [ -a $1 ] && [ -z $2 ] && [ ! -w $1 ]
-then
-  sudoedit "$@"
-else
-  gvim -v "$@"
-fi
-}
+##vim stuff
+##default editor
+#export EDITOR='gvim -v'
+##copy and paste via X gvim binary + sudo editing
+#function vim () {
+#if [ -a $1 ] && [ -z $2 ] && [ ! -w $1 ]
+#then
+#  sudoedit "$@"
+#else
+#  gvim -v "$@"
+#fi
+#}
 alias vi='vim'
 
 #easily reboot and shutdown
