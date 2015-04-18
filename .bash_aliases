@@ -57,7 +57,9 @@ alias moo='figlet -f mini y2kbugger | cowthink -n -d'
 
 #entering the matrix
 function neo () {
-    i3-msg fullscreen
-    wakeupneo.py
-    cmatrix
+    xterm -e '
+        #sleep .1
+        i3-msg fullscreen
+        wakeupneo.py
+        cmatrix'
 }
