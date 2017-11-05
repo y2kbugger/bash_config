@@ -9,6 +9,12 @@ alias l.='ls -d .* --color=always'
 # Recent Files
 alias lrt='ls -lArt --color=always'
 
+# vim stuff
+# default editor
+export EDITOR='vim --servername vim'
+alias vi='vim --servername vim'
+alias vim='vim --servername vim'
+
 # easily reboot and shutdown
 alias rb='systemctl reboot'
 alias sd='systemctl poweroff'
