@@ -26,3 +26,7 @@ test -r $d && eval "$(dircolors ~/.dir_colors)"
 #allow for reverse intelligent searching 'forward' with ctrl-s
 stty -ixon
 
+# Add ~/algs4/bin to the PATH
+# export PATH=$PATH:$HOME/algs4/bin
+
+. virtualenvwrapper_lazy.sh
