@@ -6,6 +6,8 @@ alias ls='ls --color=always'
 alias ll='ls -lA --color=always'
 # Show hidden files
 alias l.='ls -d .* --color=always'
+# Recent Files
+alias lrt='ls -lArt --color=always'
 
 # easily reboot and shutdown
 alias rb='systemctl reboot'
