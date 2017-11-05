@@ -1,0 +1,16 @@
+###########
+Bash Config
+###########
+
+This is repo for system agonistic bash preferences. This will be used on all of
+my pcs at work and home, including servers
+
+includes:
+    .bashrc
+    .bash_aliases
+
+excludes:
+    .bash_profile
+    .bash_logoff
+
+The excludes were made, because in practical terms they serve a system specific purpose. eg. I don't need to startx on anthing but my laptop.
