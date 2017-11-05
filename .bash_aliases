@@ -18,7 +18,19 @@ alias vim='vim --servername vim'
 # easily reboot and shutdown
 alias rb='systemctl reboot'
 alias sd='systemctl poweroff'
+alias sus='systemctl suspend'
 
+# for remote systems
+function ssht () {
+    '/usr/bin/ssh' -t $@ "tmux attach || tmux new";}
+alias p182up='wol 00:1d:60:c9:44:b0'
+alias p182rb='ssh y2k@192.168.1.210 "sudo systemctl reboot"'
+alias p182sus='ssh y2k@192.168.1.210 "sudo systemctl suspend"'
+alias p182ssh='ssht y2k@192.168.1.210'
+
+alias itxs8rb='ssh y2k@192.168.1.228 -t "sudo systemctl reboot"'
+alias itxs8sus='ssh y2k@192.168.1.228 -t "sudo systemctl suspend"'
+alias itxs8ssh='ssht y2k@192.168.1.228'
 
 # vim like shorthands for bash
 alias q='exit'
