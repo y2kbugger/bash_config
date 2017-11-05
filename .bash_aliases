@@ -35,6 +35,8 @@ alias itxs8ssh='ssht y2k@192.168.1.228'
 # vim like shorthands for bash
 alias q='exit'
 
+# case insensitive locate
+alias locate='locate -i '
 
 # temporarily enable touchpad, leave click buttons on
 function touchpad () {
