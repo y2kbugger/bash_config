@@ -5,6 +5,7 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+PATH="$HOME/bin:$PATH"
 
 PS1='[\u@\h \W]\$ '
 
