@@ -1,4 +1,4 @@
-#~/.bash_aliases
+# ~/.bash_aliases
 
 # colorize output
 alias ls='ls --color=always'
@@ -49,9 +49,11 @@ function touchpad () {
 }
 
 # alias for todo.sh and the corresponding match to autocomplete
-source /usr/share/bash-completion/completions/todo.sh
-alias t='todo.sh -t -c'
-complete -F _todo t
+command -v todo.sh >/dev/null 2>&1 && {
+    source /usr/share/bash-completion/completions/todo.sh;
+    alias t='todo.sh -t -c';
+    complete -F _todo t;
+}
 
 # cute little mo0ocow
 alias moo='figlet -f mini y2kbugger | cowthink -n -d'
