@@ -23,8 +23,11 @@ fi
 
 test -r $d && eval "$(dircolors ~/.dir_colors)"
 
-#allow for reverse intelligent searching 'forward' with ctrl-s
+# allow for reverse intelligent searching 'forward' with ctrl-s
 stty -ixon
+
+# enable layered glob echo ~/.vim/**/*.vim
+shopt -s globstar
 
 # Add ~/algs4/bin to the PATH
 # export PATH=$PATH:$HOME/algs4/bin
