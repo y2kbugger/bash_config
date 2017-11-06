@@ -29,4 +29,5 @@ stty -ixon
 # Add ~/algs4/bin to the PATH
 # export PATH=$PATH:$HOME/algs4/bin
 
+export WORKON_HOME=~/.virtualenvs
 . virtualenvwrapper_lazy.sh

@@ -32,6 +32,8 @@ alias itxs8rb='ssh y2k@192.168.1.228 -t "sudo systemctl reboot"'
 alias itxs8sus='ssh y2k@192.168.1.228 -t "sudo systemctl suspend"'
 alias itxs8ssh='ssht y2k@192.168.1.228'
 
+alias 6pssh='ssht -p 8022 y2k@192.168.1.202'
+
 # vim like shorthands for bash
 alias q='exit'
 
