@@ -5,7 +5,12 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-PS1='[\u@\h \W]\$ '
+# make prompt short on android
+case ":$PATH:" in
+  *android*) PS1='[\u@\h \W]\$ ';;
+  *) echo PS1='[@6p \W]\$ ';;
+esac
+
 
 #preserving bash history accross multiple ttys
 shopt -s histappend
