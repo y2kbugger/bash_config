@@ -34,6 +34,8 @@ alias itxs8ssh='ssht y2k@192.168.1.228'
 
 alias 6pssh='ssht -p 8022 y2k@192.168.1.202'
 
+alias 15rssh='ssht y2k@192.168.1.201'
+
 # vim like shorthands for bash
 alias q='exit'
 
