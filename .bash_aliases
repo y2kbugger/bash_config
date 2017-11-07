@@ -11,9 +11,8 @@ alias lrt='ls -lArt --color=always'
 
 # vim stuff
 # default editor
-export EDITOR='vim --servername vim'
-alias vi='vim --servername vim'
-alias vim='vim --servername vim'
+export VISUAL='vim'
+export EDITOR="$VISUAL"
 
 # easily reboot and shutdown
 alias rb='systemctl reboot'
