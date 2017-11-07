@@ -20,7 +20,7 @@ if [ -f ~/.bash_aliases ]; then
 . ~/.bash_aliases
 fi
 
-test -r $d && eval "$(dircolors ~/.dir_colors)"
+test -r $d && eval "$(dircolors --bourne-shell ~/.dir_colors)"
 
 # allow for reverse intelligent searching 'forward' with ctrl-s
 stty -ixon
