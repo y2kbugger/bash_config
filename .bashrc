@@ -7,8 +7,8 @@
 
 # make prompt short on android
 case ":$PATH:" in
-  *android*) PS1='[\u@\h \W]\$ ';;
-  *) echo PS1='[@6p \W]\$ ';;
+  *com.termux*) PS1='[@6p \W]\$ ';;
+  *) PS1='[\u@\h \W]\$ ';;
 esac
 
 
