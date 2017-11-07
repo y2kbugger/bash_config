@@ -22,7 +22,8 @@ alias sus='systemctl suspend'
 
 # for remote systems
 function ssht () {
-    '/usr/bin/ssh' -t $@ "tmux attach || tmux new";}
+    ssh -t $@ "tmux attach || tmux new";
+}
 alias p182up='wol 00:1d:60:c9:44:b0'
 alias p182rb='ssh y2k@192.168.1.210 "sudo systemctl reboot"'
 alias p182sus='ssh y2k@192.168.1.210 "sudo systemctl suspend"'
