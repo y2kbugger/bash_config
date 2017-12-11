@@ -27,10 +27,12 @@ alias p182up='wol 00:1d:60:c9:44:b0'
 alias p182rb='ssh y2k@192.168.1.210 "sudo systemctl reboot"'
 alias p182sus='ssh y2k@192.168.1.210 "sudo systemctl suspend"'
 alias p182ssh='ssht y2k@192.168.1.210'
+alias p182mnt='sshfs y2k@192.168.1.210:/ /media/p182/'
 
 alias itxs8rb='ssh y2k@192.168.1.228 -t "sudo systemctl reboot"'
 alias itxs8sus='ssh y2k@192.168.1.228 -t "sudo systemctl suspend"'
 alias itxs8ssh='ssht y2k@192.168.1.228'
+alias itxs8mnt='sshfs y2k@192.168.1.228:/ /media/itxs8/'
 
 alias 6pssh='ssht -p 8022 y2k@192.168.1.202'
 
