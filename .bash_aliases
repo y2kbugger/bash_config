@@ -19,6 +19,9 @@ alias rb='systemctl reboot'
 alias sd='systemctl poweroff'
 alias sus='systemctl suspend'
 
+# git (be conservative of what you put here)
+alias gits='git status -s'
+
 # for remote systems
 function ssht () {
     ssh -t $@ "tmux attach || tmux new";
