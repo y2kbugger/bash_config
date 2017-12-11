@@ -36,7 +36,5 @@ shopt -s globstar
 # Add ~/algs4/bin to the PATH
 # export PATH=$PATH:$HOME/algs4/bin
 
-command -v virtualenvwrapper_lazy.sh >/dev/null 2>&1 && {
-    export WORKON_HOME=~/.virtualenvs
-    . virtualenvwrapper_lazy.sh
-}
+# don't let pip work without using virtualenvs
+export PIP_REQUIRE_VIRTUALENV=true

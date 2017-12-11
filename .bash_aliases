@@ -44,6 +44,10 @@ alias q='exit'
 # case insensitive locate
 alias locate='locate -i '
 
+# quick environments for different projects
+alias wo-htooze='cd ~/dev/HTooze && pipenv shell'
+alias wo-bash_config='cd ~/dev/bash_config'
+
 # temporarily enable touchpad, leave click buttons on
 function touchpad () {
         #synclient TouchpadOff=$(synclient -l | grep -c 'TouchpadOff.*=.*0') #toggle
