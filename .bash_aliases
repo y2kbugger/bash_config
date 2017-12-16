@@ -50,6 +50,7 @@ alias locate='locate -i '
 # quick environments for different projects
 alias wo-htooze='cd ~/dev/HTooze && pipenv shell'
 alias wo-bash_config='cd ~/dev/bash_config'
+alias wo-blog='cd ~/dev/y2kbugger.github.io/ && pipenv shell && git checkout write'
 
 # temporarily enable touchpad, leave click buttons on
 function touchpad () {
