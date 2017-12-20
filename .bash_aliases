@@ -50,7 +50,15 @@ alias locate='locate -i '
 # quick environments for different projects
 alias wo-htooze='cd ~/dev/HTooze && pipenv shell'
 alias wo-bash_config='cd ~/dev/bash_config'
-alias wo-blog='cd ~/dev/y2kbugger.github.io/ && pipenv shell && git checkout write'
+function wo-blog () {
+   cd ~/dev/blog/
+   git checkout write 
+   pipenv run make stopserver
+   pipenv run make devserver > /dev/null 2>&1
+   chromium --new-window "http://localhost:8000/drafts/" > /dev/null 2>&1 &
+   pipenv shell vim content
+   }
+
 
 # temporarily enable touchpad, leave click buttons on
 function touchpad () {
