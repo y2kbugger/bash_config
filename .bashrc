@@ -22,6 +22,17 @@ export HISTFILESIZE=-1
 export HISTSIZE=-1
 export HISTFILE=~/.bash_eternal_history
 
+# blacklist some commands from history
+HISTIGNORE=$'[ \t]*' # starting with tab or spac
+HISTIGNORE+=':&' # bg procs
+HISTIGNORE+=':[fb]g'
+HISTIGNORE+=':exit'
+HISTIGNORE+=':q'
+HISTIGNORE+=':ls' 
+HISTIGNORE+=':$PS1'
+
+export HISTIGNORE
+
 if [ -f ~/.bash_aliases ]; then
 . ~/.bash_aliases
 fi
