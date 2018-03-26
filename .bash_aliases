@@ -2,6 +2,7 @@
 
 # colorize output
 alias ls='ls --color=always'
+alias grep='grep --color'
 # Use a long listing format
 alias ll='ls -lA --color=always'
 # Show hidden files
@@ -20,7 +21,8 @@ alias sd='systemctl poweroff'
 alias sus='systemctl suspend'
 
 # git (be conservative of what you put here)
-alias gits='git status -s'
+alias gs='git status -s'
+alias gg='git log --all --graph --decorate --oneline -n17 --date=relative'
 
 # for remote systems
 function ssht () {
