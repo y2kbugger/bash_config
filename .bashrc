@@ -29,7 +29,6 @@ HISTIGNORE+=':[fb]g'
 HISTIGNORE+=':exit'
 HISTIGNORE+=':q'
 HISTIGNORE+=':ls' 
-HISTIGNORE+=":$PS1"
 
 export HISTIGNORE
 
