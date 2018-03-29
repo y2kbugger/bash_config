@@ -1,0 +1,30 @@
+# ~/.bash_aliases_win
+
+# these must be before the following check for interactivity:
+alias jpy="jupyter notebook ~/devel/ipynb/"
+alias flaskdebug='echo "Starting Flask..."; FLASK_APP=virtcom.http FLASK_DEBUG=1 python $pythonroot/Scripts/flask-script.py run -h 0.0.0.0 -p 8000'
+alias ipython="winpty ipython"
+alias python="winpty python"
+alias mru=$'awk \'/^> /{ sub("~", ENVIRON["HOME"]); print substr($0, 3) }\' ~/.viminfo | xargs realpath -eqP --relative-base=.'
+
+# 2018-03-26
+# workaround for msys2 envsubst.exe bug
+# https://github.com/Alexpux/MSYS2-packages/issues/735
+alias git="PATH=/usr/bin git"
+
+function rmtag () {
+git tag -d $1 && git push --delete origin tag: "$1"
+}
+
+function tmuxsession () {
+    FILE=tmux.session
+    if [ -f $FILE ]; then
+        windowtitle="${PWD##*/} tmuxsession"
+        PS1=""
+        # PS1="\e]0;$windowtitle\a\n$"
+        echo -ne "\e]0;$windowtitle\a"
+        tmux new-session "bash -c '. $FILE'"
+    else
+        tmux
+    fi
+}
