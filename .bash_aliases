@@ -10,6 +10,8 @@ alias ll='ls -lA --color=always'
 alias l.='ls -d .* --color=always'
 # Recent Files
 alias lrt='ls -lArt --color=always'
+###
+vim=nvim
 
 # git (be conservative of what you put here)
 alias gs='git status -s'

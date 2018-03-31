@@ -44,7 +44,7 @@ fi
 
 # vim stuff
 # default editor
-export VISUAL='vim'
+export VISUAL='nvim'
 export EDITOR="$VISUAL"
 
 # don't let pip work without using virtualenvs
