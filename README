@@ -8,6 +8,8 @@ my pcs at work and home, including servers
 includes:
     .bashrc
     .bash_aliases
+    .bash_aliases_home
+    .bash_aliases_win
 
 excludes:
     .bash_profile
