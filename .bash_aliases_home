@@ -26,7 +26,7 @@ alias 15rssh='ssht y2k@192.168.1.201'
 
 # quick environments for different projects
 alias wo-htooze='cd ~/dev/HTooze && pipenv shell'
-alias wo-bash_config='cd ~/dev/bash_config'
+alias wo-bash_config='cd ~/devel/syncy2kconfigs/bash_config'
 function wo-blog () {
    cd ~/dev/blog/
    git checkout write
