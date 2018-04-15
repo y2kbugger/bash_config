@@ -49,6 +49,20 @@ export EDITOR="$VISUAL"
 
 # don't let pip work without using virtualenvs
 export PIP_REQUIRE_VIRTUALENV=true
+# allow to overcome the above with pipdo !!
+function pipdo {
+    case "$@" in
+      *install*--user*)
+        PIP_REQUIRE_VIRTUALENV=false $@
+        ;;
+      *install*)
+        echo 'Remember to `pip install --user`'
+        ;;
+      *)
+        PIP_REQUIRE_VIRTUALENV=false $@
+        ;;
+    esac
+}
 
 # preserving bash history across multiple ttys
 shopt -s histappend
