@@ -5,7 +5,12 @@ alias jpy="jupyter notebook ~/devel/ipynb/"
 alias flaskdebug='echo "Starting Flask..."; FLASK_APP=virtcom.http FLASK_DEBUG=1 python $pythonroot/Scripts/flask-script.py run -h 0.0.0.0 -p 8000'
 alias ipython="winpty ipython"
 alias python="winpty python"
+alias cc='python -m coopercondadeploy.bin.cooperconda'
+alias nvim="winpty --mouse nvim"
 alias mru=$'awk \'/^> /{ sub("~", ENVIRON["HOME"]); print substr($0, 3) }\' ~/.viminfo | xargs realpath -eqP --relative-base=.'
+
+alias tf="'/c/Program Files (x86)/Microsoft Visual Studio 11.0/Common7/IDE/tf.exe'"
+alias tfpt="'/c/Program Files (x86)/Microsoft Team Foundation Server 2012 Power Tools/TFPT.EXE'"
 
 # 2018-03-26
 # workaround for msys2 envsubst.exe bug
@@ -13,7 +18,7 @@ alias mru=$'awk \'/^> /{ sub("~", ENVIRON["HOME"]); print substr($0, 3) }\' ~/.v
 alias git="PATH=/usr/bin git"
 
 function rmtag () {
-git tag -d $1 && git push --delete origin tag: "$1"
+git tag -d $1 && git push --delete origin $1
 }
 
 function tmuxsession () {

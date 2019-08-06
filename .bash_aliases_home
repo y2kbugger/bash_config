@@ -1,5 +1,8 @@
 # ~/.bash_aliases_home
 
+# Use nvim by default
+alias vim=nvim
+
 # easily reboot and shutdown
 alias rb='systemctl reboot'
 alias sd='systemctl poweroff'
@@ -62,3 +65,4 @@ function neo () {
         wakeupneo.py
         cmatrix'
 }
+

@@ -11,9 +11,6 @@ alias l.='ls -d .* --color=always'
 # Recent Files
 alias lrt='ls -lArt --color=always'
 
-# Use nvim by default
-alias vim=nvim
-
 # git (be conservative of what you put here)
 alias gs='git status -s'
 alias gg='git log --all --graph --decorate --oneline -n17 --date=relative'

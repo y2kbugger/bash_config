@@ -29,7 +29,6 @@ TERM screen-w
 TERM vt100
 TERM Eterm
 TERM xterm-16color
-TERM xterm-256color
 
 # Below are the color init strings for the basic file types. A color init
 # string consists of one or more of the following numeric codes:
@@ -132,3 +131,4 @@ EXEC 35
 .flac 01;35
 .asf 01;35
 .ram 01;35
+

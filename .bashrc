@@ -1,19 +1,21 @@
 #
 # ~/.bashrc
 #
-
 # check if on windows
 if [ -d /c ]; then
     win=true
-    # Check that we haven't already been sourced.
-    if [[ -z ${CYG_SYS_BASHRC} ]]; then
-        CYG_SYS_BASHRC="1"
-    else
-        return
-    fi
 else
     win=false
 fi
+
+# if  [ ${win} = true ]; then
+#     # Check that we haven't already been sourced.
+#     if [[ -z ${CYG_SYS_BASHRC} ]]; then
+#         export CYG_SYS_BASHRC="1"
+#     else
+#         return
+#     fi
+# fi
 
 # If not running interactively, don't do anything
 # old ways:
@@ -34,22 +36,27 @@ esac
 
 # Manually set the path to something succinct
 if  [ ${win} = true ]; then
-    pythonroot=/c/Users/zdkohler/AppData/Local/Continuum/floccrate
-    PATH=$pythonroot:$pythonroot/Scripts:
-    PATH=$PATH:/c/WINDOWS/system32:/c/WINDOWS
+    pythonroot=/c/ProgramData/CooperConda
+    PATH=$pythonroot:$pythonroot/Scripts
+    PATH=$PATH:/c/WINDOWS/system32:/c/WINDOWS:/c/orant/bin
     PATH=/bin:$PATH
     PATH=/usr/bin:$PATH
     PATH=/mingw64/bin:$PATH
+    PATH=/c/Users/zdkohler/devel/Neovim/bin:$PATH
 fi
 
 # vim stuff
 # default editor
-export VISUAL='nvim'
+export VISUAL='vim'
 export EDITOR="$VISUAL"
+export COLORTERM=256
 
 # don't let pip work without using virtualenvs
-export PIP_REQUIRE_VIRTUALENV=true
+if  [ ${win} = false ]; then
+    export PIP_REQUIRE_VIRTUALENV=true
+fi
 # allow to overcome the above with pipdo !!
+# todo check for conda env??? instead of win check???
 function pipdo {
     case "$@" in
       *install*--user*)
@@ -81,6 +88,8 @@ HISTIGNORE+=':exit'
 HISTIGNORE+=':q'
 HISTIGNORE+=':ls'
 
+GIT_CEILING_DIRECTORIES=$HOME
+
 # aliases
 if [ -r ~/.bash_aliases ]; then
     . ~/.bash_aliases
@@ -104,8 +113,26 @@ shopt -s globstar
 
 # git completion and cute PS1 DECO
 if  [ ${win} = true ]; then
-    . /etc/profile.d/git-prompt.sh
-fi
+    # . /etc/profile.d/git-prompt.sh
+    # code below is a modified version of the script above
+    PS1='\[\033]0;\w\007\]' # set window title y2k
+    PS1="$PS1"'\n'                 # new line
+    PS1="$PS1"'\[\033[32m\]'       # change to green
+    PS1="$PS1"'\u@\h '             # user@host<space>
+    PS1="$PS1"'\[\033[33m\]'       # change to brownish yellow
+    PS1="$PS1"'\w'                 # current working directory
 
-# Fixup git-bash in non login env
-# shopt -q login_shell || . /etc/profile.d/git-prompt.sh
+    COMPLETION_PATH="/usr/share/git/completion"
+    if [ -f "$COMPLETION_PATH/git-completion.bash" ]; then
+        . "$COMPLETION_PATH/git-completion.bash"
+    fi
+    if [ -f "$COMPLETION_PATH/git-prompt.sh" ]; then
+        . "$COMPLETION_PATH/git-prompt.sh"
+        PS1="$PS1"'\[\033[36m\]'  # change color to cyan
+        PS1="$PS1"'`__git_ps1`'   # bash function
+    fi
+    PS1="$PS1"'\[\033[0m\]'        # change color
+    PS1="$PS1"'\n'                 # new line
+    PS1="$PS1"'$ '                 # prompt: always $
+    MSYS2_PS1="$PS1"               # for detection by MSYS2 SDK's bash.basrc
+fi
