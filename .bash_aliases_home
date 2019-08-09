@@ -1,7 +1,10 @@
 # ~/.bash_aliases_home
 
-# Use nvim by default
+# vim/editor stuff
 alias vim=nvim
+export VISUAL='nvim'
+export EDITOR="$VISUAL"
+export COLORTERM=256
 
 # easily reboot and shutdown
 alias rb='systemctl reboot'

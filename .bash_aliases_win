@@ -1,12 +1,22 @@
 # ~/.bash_aliases_win
 
+# vim/editor stuff
+_qtnvim='/c/Users/zdkohler/devel/Neovim/bin/nvim-qt.exe'
+_nvim='/c/Users/zdkohler/devel/Neovim/bin/nvim.exe'
+alias vim="winpty --mouse $_nvim"
+export VISUAL="winpty --mouse $_nvim"
+# alias vim=$_qtnvim
+# export VISUAL=$_qtnvim
+export EDITOR="$VISUAL"
+export COLORTERM=256
+
+
 # these must be before the following check for interactivity:
 alias jpy="jupyter notebook ~/devel/ipynb/"
 alias flaskdebug='echo "Starting Flask..."; FLASK_APP=virtcom.http FLASK_DEBUG=1 python $pythonroot/Scripts/flask-script.py run -h 0.0.0.0 -p 8000'
 alias ipython="winpty ipython"
 alias python="winpty python"
 alias cc='python -m coopercondadeploy.bin.cooperconda'
-alias nvim="winpty --mouse nvim"
 alias mru=$'awk \'/^> /{ sub("~", ENVIRON["HOME"]); print substr($0, 3) }\' ~/.viminfo | xargs realpath -eqP --relative-base=.'
 
 alias tf="'/c/Program Files (x86)/Microsoft Visual Studio 11.0/Common7/IDE/tf.exe'"

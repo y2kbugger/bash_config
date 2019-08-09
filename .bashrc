@@ -50,11 +50,6 @@ if  [ ${win} = true ]; then
     export MSYS=winsymlinks:nativestrict
 fi
 
-# vim stuff
-# default editor
-export VISUAL='vim'
-export EDITOR="$VISUAL"
-export COLORTERM=256
 
 # don't let pip work without using virtualenvs
 if  [ ${win} = false ]; then
