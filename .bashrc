@@ -43,6 +43,11 @@ if  [ ${win} = true ]; then
     PATH=/usr/bin:$PATH
     PATH=/mingw64/bin:$PATH
     PATH=/c/Users/zdkohler/devel/Neovim/bin:$PATH
+
+    # allow ln to use native windows 10 symlinks
+    # this requires developer mode turned on
+    # https://www.joshkel.com/2018/01/18/symlinks-in-windows/
+    export MSYS=winsymlinks:nativestrict
 fi
 
 # vim stuff
