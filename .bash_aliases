@@ -14,6 +14,8 @@ alias lrt='ls -lArt --color=always'
 # git (be conservative of what you put here)
 alias gs='git status -s'
 alias gg='git log --all --graph --decorate --oneline -n17 --date=relative'
+alias gd='git diff'
+alias gdd='git diff --cached'
 
 # vim like shorthands for bash
 alias q='exit'
