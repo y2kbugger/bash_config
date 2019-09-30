@@ -37,12 +37,20 @@ esac
 # Manually set the path to something succinct
 if  [ ${win} = true ]; then
     pythonroot=/c/ProgramData/CooperConda
-    PATH=$pythonroot:$pythonroot/Scripts
-    PATH=$PATH:/c/WINDOWS/system32:/c/WINDOWS:/c/orant/bin
-    PATH=/bin:$PATH
+    PATH=$pythonroot
+    PATH=$PATH:$pythonroot/Library/mingw-w64/bin
+    PATH=$PATH:$pythonroot/Library/usr/bin
+    PATH=$PATH:$pythonroot/Library/bin
+    PATH=$PATH:$pythonroot/Scripts
+    PATH=$PATH:$pythonroot/Scripts
+    PATH=$PATH:$pythonroot/bin
+    PATH=$PATH:$pythonroot/Scripts/condabin
+    PATH=/opt/bin:$PATH
     PATH=/usr/bin:$PATH
+    PATH="/usr/local/bin:$PATH"
     PATH=/mingw64/bin:$PATH
-    PATH=/c/Users/zdkohler/devel/Neovim/bin:$PATH
+    PATH=$PATH:$HOME/devel/Neovim/bin
+    PATH=$PATH:/c/WINDOWS/system32:/c/WINDOWS:/c/orant/bin
 
     # allow ln to use native windows 10 symlinks
     # this requires developer mode turned on
@@ -135,4 +143,9 @@ if  [ ${win} = true ]; then
     PS1="$PS1"'\n'                 # new line
     PS1="$PS1"'$ '                 # prompt: always $
     MSYS2_PS1="$PS1"               # for detection by MSYS2 SDK's bash.basrc
+fi
+
+
+if  [ ${win} = true ]; then
+    eval "$('/c/ProgramData/CooperConda/Scripts/conda.exe' 'shell.bash' 'hook')"
 fi
