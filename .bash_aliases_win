@@ -26,7 +26,12 @@ alias python="winpty python"
 alias cc='python -m coopercondadeploy.bin.cooperconda'
 alias mru=$'awk \'/^> /{ sub("~", ENVIRON["HOME"]); print substr($0, 3) }\' ~/.viminfo | xargs realpath -eqP --relative-base=.'
 
-alias tf="'/c/Program Files (x86)/Microsoft Visual Studio 11.0/Common7/IDE/tf.exe'"
+export TF_2015='/c/Program Files (x86)/Microsoft Visual Studio 11.0/Common7/IDE/tf.exe'
+export TF_2017='/c/Program Files (x86)/Microsoft Visual Studio/2017/Enterprise/Common7/IDE/CommonExtensions/Microsoft/TeamFoundation/Team Explorer/TF.exe'
+
+alias tf="echo tf.exe not at one of the locations configured in .bash_aliases_win"
+"$TF_2015" > /dev/null 2>&1  && alias tf="'$TF_2015'"
+"$TF_2017" > /dev/null 2>&1  && alias tf="'$TF_2017'"
 alias tfpt="'/c/Program Files (x86)/Microsoft Team Foundation Server 2012 Power Tools/TFPT.EXE'"
 
 # 2018-03-26
