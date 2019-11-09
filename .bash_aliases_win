@@ -7,7 +7,14 @@ alias vim="winpty --mouse $_nvim"
 export VISUAL="winpty --mouse $_nvim"
 # alias vim=$_qtnvim
 # export VISUAL=$_qtnvim
-export EDITOR="$VISUAL"
+if [ "$TERM" == "cygwin" ]; then
+    alias vim='/usr/bin/vim'
+    export VISUAL='vim'
+    export EDITOR="/usr/bin/vim"
+else
+    export EDITOR="$VISUAL"
+
+fi
 export COLORTERM=256
 
 
