@@ -36,7 +36,6 @@ alias wo-bash_config='cd ~/devel/syncy2kconfigs/bash_config'
 function wo-blog () {
    cd ~/devel/blog/
    git checkout write
-   pipenv run make stopserver
    pipenv run make devserver > /dev/null 2>&1
    chromium --new-window "http://localhost:8000/drafts/" > /dev/null 2>&1 &
    pipenv shell vim content
