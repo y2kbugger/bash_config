@@ -15,11 +15,3 @@ if [ -d /c ]; then
 else
     win=false
 fi
-
-if  [ ${win} = true ]; then
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-eval "$('/c/ProgramData/CooperConda/Scripts/conda.exe' 'shell.bash' 'hook')"
-# <<< conda initialize <<<
-fi
-

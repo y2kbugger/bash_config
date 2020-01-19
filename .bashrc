@@ -8,15 +8,6 @@ else
     win=false
 fi
 
-# if  [ ${win} = true ]; then
-#     # Check that we haven't already been sourced.
-#     if [[ -z ${CYG_SYS_BASHRC} ]]; then
-#         export CYG_SYS_BASHRC="1"
-#     else
-#         return
-#     fi
-# fi
-
 # If not running interactively, don't do anything
 # old ways:
 # [[ "$-" in *i* ]] && return
@@ -34,27 +25,8 @@ case ":$PATH:" in
 \$ ';;
 esac
 
-# Manually set the path to something succinct
+# Allow symlinks, requires enabling developer mode in windows 10
 if  [ ${win} = true ]; then
-    pythonroot=/c/ProgramData/CooperConda
-    PATH=$pythonroot
-    PATH=$PATH:$pythonroot/Library/mingw-w64/bin
-    PATH=$PATH:$pythonroot/Library/usr/bin
-    PATH=$PATH:$pythonroot/Library/bin
-    PATH=$PATH:$pythonroot/Scripts
-    PATH=$PATH:$pythonroot/Scripts
-    PATH=$PATH:$pythonroot/bin
-    PATH=$PATH:$pythonroot/Scripts/condabin
-    PATH=/opt/bin:$PATH
-    PATH=/usr/bin:$PATH
-    PATH="/usr/local/bin:$PATH"
-    PATH=/mingw64/bin:$PATH
-    PATH=$PATH:$HOME/devel/Neovim/bin
-    PATH=$PATH:/c/WINDOWS/system32:/c/WINDOWS:/c/orant/bin
-
-    # allow ln to use native windows 10 symlinks
-    # this requires developer mode turned on
-    # https://www.joshkel.com/2018/01/18/symlinks-in-windows/
     export MSYS=winsymlinks:nativestrict
 fi
 
@@ -129,17 +101,7 @@ if  [ ${win} = true ]; then
     PS1="$PS1"'\u@\h '             # user@host<space>
     PS1="$PS1"'\[\033[33m\]'       # change to brownish yellow
     PS1="$PS1"'\w'                 # current working directory
-
-    COMPLETION_PATH="/usr/share/git/completion"
-    if [ -f "$COMPLETION_PATH/git-completion.bash" ]; then
-        . "$COMPLETION_PATH/git-completion.bash"
-    fi
-    if [ -f "$COMPLETION_PATH/git-prompt.sh" ]; then
-        . "$COMPLETION_PATH/git-prompt.sh"
-        PS1="$PS1"'\[\033[36m\]'  # change color to cyan
-        PS1="$PS1"'`__git_ps1`'   # bash function
-    fi
-    PS1="$PS1"'\[\033[0m\]'        # change color
+    PS1="$PS1"'\[\033[0m\]'        # reset color
     PS1="$PS1"'\n'                 # new line
     PS1="$PS1"'$ '                 # prompt: always $
     MSYS2_PS1="$PS1"               # for detection by MSYS2 SDK's bash.basrc
