@@ -34,22 +34,47 @@ alias 15rssh='ssht y2k@192.168.1.201'
 alias wo-htooze='cd ~/devel/HTooze && pipenv run bash'
 alias wo-bash_config='cd ~/devel/syncy2kconfigs/bash_config'
 function wo-blog () {
-   cd ~/devel/blog/
-   git checkout write
-   chromium --incognito --new-window "http://localhost:8000/drafts/" > /dev/null 2>&1 &
-   sleep 3
-   i3-msg split horizontal
-   i3-msg layout tabbed
-   xterm -e 'pipenv shell make devserver' &
-   pipenv shell vim content
-   }
+    cd ~/devel/blog
+    git checkout write
+    xterm -e 'pipenv shell make devserver' &
+
+    sleep 1
+    chromium --incognito --new-window "http://localhost:8000/drafts/" > /dev/null 2>&1 &
+
+    sleep 1.2
+    i3-msg focus left
+    i3-msg split horizontal
+
+    cd ~/devel/blog/content
+    xterm -e 'pipenv shell wo-blog-editor' &
+
+}
+function wo-blog-editor() {
+    echo prepare to blog
+    for n in . . . . . . . . . . .
+    do
+        for n in . . . . . . . . .
+        do
+            for n in . . . . . . .
+            do
+                printf $n
+                    sleep .001
+            done
+        done
+    done
+    i3-msg layout tabbed
+    clear
+    cd content
+    echo Here is what you need to work on:
+    git grep -l '^:status: draft' | awk '{ print "\t" $0 }'
+}
 
 # temporarily enable touchpad, leave click buttons on
 function touchpad () {
-        #synclient TouchpadOff=$(synclient -l | grep -c 'TouchpadOff.*=.*0') #toggle
-        synclient TouchpadOff=0
-        sleep 4m
-        synclient TouchpadOff=1
+    #synclient TouchpadOff=$(synclient -l | grep -c 'TouchpadOff.*=.*0') #toggle
+    synclient TouchpadOff=0
+    sleep 4m
+    synclient TouchpadOff=1
 }
 
 # alias for todo.sh and the corresponding match to autocomplete
