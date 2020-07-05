@@ -36,16 +36,15 @@ alias wo-bash_config='cd ~/devel/syncy2kconfigs/bash_config'
 function wo-blog () {
     cd ~/devel/blog
     git checkout write
-    xterm -e 'pipenv shell make devserver' &
+    xterm -e 'pipenv shell make devserver 2>&1 | tee /dev/tty | grep --line-buffered ERR |  xargs -d "\n" -I % notify-send -u critical -t 3600 "%"' &
 
-    sleep 1
+    sleep 1.4
     chromium --incognito --new-window "http://localhost:8000/drafts/" > /dev/null 2>&1 &
 
-    sleep 1.2
+    sleep 2.2
     i3-msg focus left
     i3-msg split horizontal
 
-    cd ~/devel/blog/content
     xterm -e 'pipenv shell wo-blog-editor' &
 
 }
@@ -64,9 +63,8 @@ function wo-blog-editor() {
     done
     i3-msg layout tabbed
     clear
-    cd content
     echo Here is what you need to work on:
-    git grep -l '^:status: draft' | awk '{ print "\t" $0 }'
+    git grep -l '^:status: draft' ./content | awk '{ print "\t" $0 }'
 }
 
 # temporarily enable touchpad, leave click buttons on
