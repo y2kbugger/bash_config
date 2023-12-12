@@ -25,6 +25,9 @@ case ":$PATH:" in
 \$ ';;
 esac
 
+export PATH=$PATH:/home/y2k/bin
+export PATH=$PATH:/home/y2k/.cargo/bin
+
 # Allow symlinks, requires enabling developer mode in windows 10
 if  [ ${win} = true ]; then
     export MSYS=winsymlinks:nativestrict
