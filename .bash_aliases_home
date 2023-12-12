@@ -37,22 +37,23 @@ alias 15rssh='ssht y2k@192.168.1.201'
 # quick environments for different projects
 alias wo-htooze='cd ~/devel/HTooze && pipenv run bash'
 alias wo-bash_config='cd ~/devel/syncy2kconfigs/bash_config'
-function wo-blog () {
+function wo-blog() {
     cd ~/devel/blog
+    pipenv sync
     git checkout write
-    xterm -e 'pipenv shell make devserver 2>&1 | tee /dev/tty | grep --line-buffered ERR |  xargs -d "\n" -I % notify-send -u critical -t 3600 "%"' &
+    xterm -e 'pipenv shell invoke livereload 2>&1 | tee /dev/tty | grep --line-buffered ERR |  xargs -d "\n" -I % notify-send -u critical -t 3600 "%"' &
 
     sleep 1.4
-    chromium --incognito --new-window "http://localhost:8000/drafts/" > /dev/null 2>&1 &
+    google-chrome-stable --incognito --new-window "http://localhost:8000/drafts/" > /dev/null 2>&1 &
 
     sleep 2.2
     i3-msg focus left
     i3-msg split horizontal
 
-    xterm -e 'pipenv shell wo-blog-editor' &
+    xterm -e 'pipenv shell _wo-blog-editor' &
 
 }
-function wo-blog-editor() {
+function _wo-blog-editor() {
     echo prepare to blog
     for n in . . . . . . . . . . .
     do
