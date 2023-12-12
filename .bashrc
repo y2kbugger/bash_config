@@ -33,6 +33,8 @@ if  [ ${win} = true ]; then
     export MSYS=winsymlinks:nativestrict
 fi
 
+# don't keep asking me "Always?"
+export DOTNET_WATCH_RESTART_ON_RUDE_EDIT=1
 
 # don't let pip work without using virtualenvs
 if  [ ${win} = false ]; then
