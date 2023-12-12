@@ -71,6 +71,12 @@ function _wo-blog-editor() {
     echo Here is what you need to work on:
     git grep -l '^:status: draft' ./content | awk '{ print "\t" $0 }'
 }
+function wo-kalmbach() {
+    google-chrome-stable --profile-directory=kalmbach --app=https://client.wvd.microsoft.com/arm/webclient/index.html &
+    google-chrome-stable --profile-directory=kalmbach --app=https://teams.microsoft.com &
+    sleep 0.7
+    i3-msg layout tabbed
+}
 
 # temporarily enable touchpad, leave click buttons on
 function touchpad () {
