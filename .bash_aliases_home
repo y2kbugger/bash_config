@@ -6,6 +6,9 @@ export VISUAL='nvim'
 export EDITOR="$VISUAL"
 export COLORTERM=256
 
+# don't have to type goo to open chrome
+alias chrome='google-chrome-stable --profile-directory=Default'
+
 # easily reboot and shutdown
 alias rb='systemctl reboot'
 alias sd='systemctl poweroff'
