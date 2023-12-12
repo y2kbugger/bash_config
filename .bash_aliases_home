@@ -10,6 +10,7 @@ export COLORTERM=256
 alias rb='systemctl reboot'
 alias sd='systemctl poweroff'
 alias sus='systemctl suspend'
+alias hb='systemctl hibernate'
 
 # for remote systems
 function ssht () {
